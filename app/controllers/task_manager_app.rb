@@ -1,6 +1,7 @@
 require 'models/task_manager'
 
 class TaskManagerApp < Sinatra::Base
+  set :method_override, true
   set :root, File.expand_path("..", __dir__)
 
     get '/' do
@@ -10,6 +11,11 @@ class TaskManagerApp < Sinatra::Base
     get '/tasks' do
       @tasks = [ "task1", "task2", "task3" ]
       erb :index
+    end
+
+    put '/tasks/:id' do |id|
+      task_manager.update(id.to_i), params[:task])
+
     end
 
     get '/tasks/new' do
