@@ -37,6 +37,13 @@ class TaskManager
     end
   end
 
+  def delete_all
+    database.transaction do
+      database['tasks'] = []
+      database['total'] = 0
+    end
+  end
+
   def all
     raw_tasks.map { |data| Task.new(data) }
   end
