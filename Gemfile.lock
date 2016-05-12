@@ -1,9 +1,11 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    pg (0.18.4)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
+    sequel (4.34.0)
     shotgun (0.9.1)
       rack (>= 1.0)
     sinatra (1.4.7)
@@ -16,6 +18,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  pg
+  sequel
   shotgun
   sinatra
 
